@@ -13,7 +13,11 @@ RUN apt-get update \
 
 ENV PYTHONPATH=/workspace
 
-RUN git clone https://huggingface.co/naver/splade-cocondenser-ensembledistil /workspace/splade-cocondenser-ensembledistil
+RUN git clone https://huggingface.co/naver/splade-cocondenser-ensembledistil /workspace/splade-cocondenser-ensembledistil \
+	&& cd /workspace/splade-cocondenser-ensembledistil \
+	&& apt-get install -y git-lfs \
+	&& git lfs install \
+	&& git lfs pull
 
 COPY run_retrieval.py /workspace/
 

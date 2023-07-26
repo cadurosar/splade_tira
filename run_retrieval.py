@@ -1,6 +1,7 @@
 import os
 os.environ["PYTERRIER_VERSION"] = '5.7'
 os.environ["PYTERRIER_HELPER_VERSION"] = '0.0.7'
+import argparse
 import pyterrier as pt
 if not pt.started():
   pt.init()
@@ -29,7 +30,7 @@ def main(args):
     
     queries = pt.io.read_topics(args.input + '/queries.xml', format='trecxml')
     
-    documents = [json.loads(i) for i in open(args.output + '/documents.jsonl', 'r')]
+    documents = [json.loads(i) for i in open(args.input + '/documents.jsonl', 'r')]
     
     print('Step 3: Create the Index.')
     splade = pyt_splade.SpladeFactory("/workspace/splade-cocondenser-ensembledistil")
