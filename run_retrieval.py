@@ -1,9 +1,9 @@
 import os
-os.environ["PYTERRIER_VERSION"] = '5.7'
-os.environ["PYTERRIER_HELPER_VERSION"] = '0.0.7'
+import argparse
 import pyterrier as pt
+
 if not pt.started():
-  pt.init()
+    pt.init(version=os.environ["PYTERRIER_VERSION"], helper_version=os.environ["PYTERRIER_HELPER_VERSION"]);
 
 import pandas as pd
 from tira.third_party_integrations import ensure_pyterrier_is_loaded, get_input_directory_and_output_directory, persist_and_normalize_run
@@ -29,7 +29,7 @@ def main(args):
     
     queries = pt.io.read_topics(args.input + '/queries.xml', format='trecxml')
     
-    documents = [json.loads(i) for i in open(args.output + '/documents.jsonl', 'r')]
+    documents = [json.loads(i) for i in open(args.input + '/documents.jsonl', 'r')]
     
     print('Step 3: Create the Index.')
     splade = pyt_splade.SpladeFactory("/workspace/splade-cocondenser-ensembledistil")
