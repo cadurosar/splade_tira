@@ -1,0 +1,7 @@
+python-terrier
+git+https://github.com/naver/splade.git
+git+https://github.com/cmacdonald/pyt_splade.git
+pandas
+jupyterlab
+runnb
+tira
