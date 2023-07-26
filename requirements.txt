@@ -5,3 +5,4 @@ pandas
 jupyterlab
 runnb
 tira
+pyterrier_pisa
