@@ -13,8 +13,8 @@ RUN apt-get update \
 
 ENV PYTHONPATH=/workspace
 
-COPY run_retrieval.py /workspace/
+RUN git clone https://huggingface.co/naver/splade-cocondenser-ensembledistil /workspace/splade-cocondenser-ensembledistil
 
-git clone https://huggingface.co/naver/splade-cocondenser-ensembledistil /workspace
+COPY run_retrieval.py /workspace/
 
 

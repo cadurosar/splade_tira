@@ -33,7 +33,7 @@ def main(args):
     documents = [json.loads(i) for i in open(input_directory + '/documents.jsonl', 'r')]
     
     print('Step 3: Create the Index.')
-    splade = pyt_splade.SpladeFactory("splade-cocondenser-ensembledistil")
+    splade = pyt_splade.SpladeFactory("/workspace/splade-cocondenser-ensembledistil")
     iter_indexer = pt.IterDictIndexer("./index", pretokenised=True, meta={'docno' : 100})
     
     from pyterrier_pisa import PisaIndex
