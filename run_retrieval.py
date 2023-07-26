@@ -24,13 +24,12 @@ def parse_args():
 def main(args):
     
     ensure_pyterrier_is_loaded()
-    input_directory, output_directory = get_input_directory_and_output_directory(args.input)
     
     print('Step 2: Load the data.')
     
-    queries = pt.io.read_topics(input_directory + '/queries.xml', format='trecxml')
+    queries = pt.io.read_topics(args.input + '/queries.xml', format='trecxml')
     
-    documents = [json.loads(i) for i in open(input_directory + '/documents.jsonl', 'r')]
+    documents = [json.loads(i) for i in open(args.output + '/documents.jsonl', 'r')]
     
     print('Step 3: Create the Index.')
     splade = pyt_splade.SpladeFactory("/workspace/splade-cocondenser-ensembledistil")
